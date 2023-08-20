@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Webinar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c12d8;
+            background-image: url('bg1.jpeg');
+            background-size: cover;
+            background-position: cover;
+            background-repeat: no-repeat;
+        }
+        .header {
+            background-color: #040404;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #ddafe0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(243, 67, 8, 0.1);
+        }
+        .webinar-details {
+            font-size: 18px;
+            margin-bottom: 1rem;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 36.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+        }
+        .webinar-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .countdown {
+            font-size: 24px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+         .faq {
+            margin: 2rem 0;
+        }
+        .question {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .answer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ChatGPT Webinar</h1>
+    </div>
+    <div class="content">
+        <h2>Webinar Details</h2>
+        <p class="webinar-details">
+            <strong>Topic:</strong> ChatGPT: Unleashing Engineers’ Career Growth<br>
+            <strong>Date and Time:</strong> 31st August, 2023 at 11:00 AM<br>
+            <strong>Duration:</strong> 50 minutes
+        </p>
+        <h2>About the Webinar</h2>
+        <p>
+            Join us for an insightful webinar on how ChatGPT can play a vital role in boosting engineers' career growth. Our expert speakers will share their knowledge and experience on leveraging AI-powered technologies in the engineering industry.
+        </p>
+         <h2>Webinar Image</h2>
+        <img class="webinar-image" src="image1.jpeg" alt="Webinar Image">
+        <img class="webinar-image" src="image2.jpeg" alt="Webinar Image">
+        <img class="webinar-image" src="image3.jpeg" alt="Webinar Image">
+        <img class="webinar-image" src="image4.jpeg" alt="Webinar Image">
+         <h2>Webinar Video</h2>
+        <div class="video-container">
+            <iframe class="video-player" src="https://www.youtube.com/shorts/ZkFKF-ohsKk" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h2>Key Takeaways</h2>
+        <ul>
+            <li>Understanding the impact of AI in engineering</li>
+            <li>Exploring real-world applications of ChatGPT</li>
+            <li>Tips for integrating AI into your engineering career</li>
+            <li>Q&A session with our panel of experts</li>
+        </ul>
+        <h2>Registration</h2>
+        <p>
+            Don't miss out on this opportunity to enhance your career prospects. Reserve your spot by registering <a href="#">here</a>.
+        </p>
+          <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="question" onclick="toggleAnswer(this)">What is ChatGPT?</div>
+            <div class="answer">ChatGPT is an AI language model developed by OpenAI that can generate human-like text based on the input it receives.</div>
+        </div>
+        <div class="faq">
+            <div class="question" onclick="toggleAnswer(this)">Is the webinar free?</div>
+            <div class="answer">Yes, the webinar is completely free for all participants.</div>
+        </div>
+        <script>
+        function toggleAnswer(question) {
+            const answer = question.nextElementSibling;
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
+        <h2>Countdown Timer</h2>
+        <div class="countdown" id="countdown"></div>
+         <script>
+        // Set the target date and time for the webinar
+        const targetDate = new Date('August 31, 2023 11:00:00').getTime();
+
+        // Update the countdown every 1 second
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = 'Webinar has started!';
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }, 1000);
+    </script>
+    </div>
+</body>
+</html>
